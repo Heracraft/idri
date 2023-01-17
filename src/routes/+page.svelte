@@ -1,4 +1,4 @@
-<article class="prose">
+<article class="prose p-5">
     <h1>
         hello Brocken ppl
     </h1>
