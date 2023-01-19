@@ -1,4 +1,4 @@
-<article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit m-10">
+<article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit md:m-10">
 <section class="bg-white dark:bg-neutral-800 dark:text-white text-neutral-500 rounded-xl m-2 w-full md:w-3/4 lg:w-10/12 px-5 py-5 flex flex-col justify-evenly">
   <h4 class="text-current !mb-2">Apple iMac 27”</h4>
   <h4 class="text-current !mb-2">$2999</h4>
