@@ -1,4 +1,9 @@
 <script>
+    import Navbar from "$lib/navbar.svelte"
     import "../style/tailwind.css"
+
 </script>
-<slot/>
+<main class="dark bg-neutral-900 h-full pb-10">
+    <Navbar/>
+    <slot/>
+</main>
