@@ -1,7 +1,7 @@
 <article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit m-10">
 <section class="bg-white dark:bg-neutral-800 dark:text-white text-neutral-500 rounded-xl m-2 w-full md:w-3/4 lg:w-10/12 px-5 py-5 flex flex-col justify-evenly">
-  <h4 class="text-current !my-2">Apple iMac 27”</h4>
-  <h4 class="text-current !my-2">$2999</h4>
+  <h4 class="text-current !mb-2">Apple iMac 27”</h4>
+  <h4 class="text-current !mb-2">$2999</h4>
     <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
       <div class="dark:bg-neutral-500 h-full w-full aspect-square rounded-md">
           <img src="/imac-front-image.png" alt="" />
@@ -18,11 +18,11 @@
        
     </div>
     <div >
-      <h4 class="text-current !my-2">Details</h4>
-      <p class="my-2 text-neutral-500">Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US..</p>
+      <h4 class="text-current !mb-2">Details</h4>
+      <p class="mb-2 text-neutral-500">Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US..</p>
     </div>
-    <div class="my-4">
-      <h4 class="text-current !my-2">Colors</h4>
+    <div class="mb-4">
+      <h4 class="text-current !mt-0 !mb-2">Colors</h4>
       <div class="flex">
         <span class="w-5 p-1 h-5 rounded-full mx-2 bg-cyan-500 block"/>
         <span class="w-5 p-1 h-5 rounded-full mx-2 bg-amber-500 block"/>
@@ -30,7 +30,7 @@
         <span class="w-5 p-1 h-5 rounded-full mx-2 bg-green-500 block"/>
       </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 text-base my-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 text-base mb-3">
       <span class="dark:bg-neutral-700 rounded-xl p-3 flex flex-col">
           <p class="font-semibold !my-0">Ships from</p>
           <p class="!my-1 text-neutral-400">Dar es salaam</p>
@@ -64,7 +64,10 @@
       
     </div>
     <div class="flex justify-end">
-        <button class="button">Add to cart</button>
+        <button class="button flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current mr-2"><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="17.5" cy="19.5" r="1.5"></circle><path d="M13 13h2v-2.99h2.99v-2H15V5.03h-2v2.98h-2.99v2H13V13z"></path><path d="M10 17h8a1 1 0 0 0 .93-.64L21.76 9h-2.14l-2.31 6h-6.64L6.18 4.23A2 2 0 0 0 4.33 3H2v2h2.33l4.75 11.38A1 1 0 0 0 10 17z"></path></svg>
+          Add to cart
+        </button>
     </div>
   </section>
 </article>

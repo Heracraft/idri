@@ -16,7 +16,7 @@
 
     })
 </script>
-<nav class="bg-white border-neutral-200 px-2 sm:px-4 py-2.5 dark:bg-neutral-800 text-neutral-500 dark:text-white">
+<nav class="bg-white border-neutral-200 px-2 sm:px-4 py-2.5 dark:bg-neutral-800 text-neutral-500 dark:text-white shadow-lg">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     
   <a href="/" class="flex items-center">
@@ -55,7 +55,7 @@
       </div>
       <ul class="flex flex-col p-4 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-neutral-800  dark:border-neutral-700">
         <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 dark:text-white" aria-current="page">Home</a>
+          <a href="/" class="block py-2 pl-3 pr-4 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0 dark:text-white" aria-current="page">Home</a>
         </li>
         <li>
           <a href="#" class="block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100 md:hover:bg-transparent md:hover:text-primary md:p-0 md:dark:hover:text-white dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-neutral-700">About</a>
