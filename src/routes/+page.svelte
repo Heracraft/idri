@@ -25,5 +25,6 @@
         <li>Made a navbar - still a work in progress</li>
         <li>Made the buy page - <a class="dark:text-white text-neutral-700" href="/buy/randomid">check it out</a></li>
         <li>thats all</li>
+        
     </ul>
 </article>
