@@ -1,6 +1,7 @@
 <script>
     import {onMount} from "svelte"
     import Navbar from "$lib/navbar.svelte"
+    import Drawer from "$lib/drawer.svelte"
 
     import "../style/tailwind.css"
 
@@ -23,7 +24,8 @@
         }
     }
 </script>
-<main class="dark:bg-neutral-900 min-h-[100vh] h-full pb-10">
+<main class="dark:bg-neutral-900 min-h-[100vh] h-full pb-10 relative">
+    <Drawer/>
     <Navbar/>
     <slot/>
 </main>
