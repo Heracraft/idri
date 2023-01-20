@@ -1,9 +1,32 @@
 <script>
+    import {onMount} from "svelte"
     import Language from "./language.svelte";
+
+    import anime from "../js/anime.es"
+    
+
+    let collapse,resize
+
+    onMount(()=>{
+        resize=async()=>{
+            if ( collapse){
+                collapse.style.background="none"
+                 anime({
+                    targets:"#drawer",
+                    translateX:"100%",
+                    easing:"easeInCubic",
+                    duration:500
+                })
+                setTimeout(()=>{collapse.style.display="none"},600)
+                
+            }
+        }
+    })
 </script>
 
-<article class="w-full h-screen bg-black bg-opacity-50 absolute flex m-0 justify-end z-10">
-    <section class="flex flex-col p-2 card !rounded max-w-sm w-64 px-5 h-full fixed ">
+<article id="drawer" class="w-full h-screen bg-black bg-opacity-50 fixed flex m-0 justify-end z-10" style="transform: translateX(100%);" bind:this={collapse}>
+    <div class="w-full z-20 fixed bottom-0 top-0 left-0" on:click={()=>{resize();}}></div>
+    <section class="flex flex-col p-2 card !rounded max-w-sm w-64 px-5 h-full fixed z-30 border-0 border-l-2">
         <div class="flex flex-col justify-center items-center">
             <img class="w-20 h-20 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar">
             <p class="text-xl font-semibold my-2">Daniel</p>
@@ -25,6 +48,7 @@
             <div class="spacer"></div>
         </div>
         <div class="flex flex-col text-xl w-full">
+            
             <span class="flex items-center hover:bg-neutral-700 p-2 rounded-xl my-2 w-full">
                 <svg class="mx-2 fill-neutral-500 w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="M13 20v-4.586L20.414 8c.375-.375.586-.884.586-1.415V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2.585c0 .531.211 1.04.586 1.415L11 15.414V22l2-2z"></path></svg>
                 <a href="/">Filter</a>
