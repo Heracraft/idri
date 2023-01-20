@@ -19,6 +19,9 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+    }
   ],
 }

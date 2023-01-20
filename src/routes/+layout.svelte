@@ -1,9 +1,29 @@
 <script>
+    import {onMount} from "svelte"
     import Navbar from "$lib/navbar.svelte"
+
     import "../style/tailwind.css"
 
+    import {colorTheme} from "../js/store"
+
+    onMount(()=>{
+        // if (!$colorTheme){
+            // }
+        $colorTheme=localStorage.getItem("colorTheme")||"light"
+        
+    })
+    $:{
+        if($colorTheme=="dark"){
+            document.body.classList.remove("dark")
+            document.body.classList.add("light")
+        }
+        else if($colorTheme=="light"){
+            document.body.classList.remove("light")
+            document.body.classList.add("dark")
+        }
+    }
 </script>
-<main class="dark bg-neutral-900 h-full pb-10">
+<main class="dark:bg-neutral-900 min-h-[100vh] h-full pb-10">
     <Navbar/>
     <slot/>
 </main>
