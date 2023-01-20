@@ -2,8 +2,8 @@
     import Language from "./language.svelte";
 </script>
 
-<article class="w-full h-screen bg-black bg-opacity-50 absolute flex m-0 justify-end z-10">
-    <section class="flex flex-col p-2 card !rounded max-w-sm w-64 px-5 h-full fixed ">
+<article class="w-full h-screen bg-black bg-opacity-50 fixed flex m-0 justify-end z-10">
+    <section class="flex flex-col p-2 card !rounded max-w-sm w-64 px-5 h-full ">
         <div class="flex flex-col justify-center items-center">
             <img class="w-20 h-20 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar">
             <p class="text-xl font-semibold my-2">Daniel</p>
