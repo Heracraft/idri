@@ -1,5 +1,5 @@
 <script>
-    import Product from "$lib/product.svelte";
+    import Ratings from "$lib/ratings.svelte";
 </script>
 <section class="prose lg:prose-xl flex flex-col items-center dark:child:text-white child:!my-2">
     <h1>Product card</h1>
