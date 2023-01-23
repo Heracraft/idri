@@ -1,8 +1,47 @@
-<article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit md:m-10">
-<section class="card m-4 w-full md:w-3/4 lg:w-10/12 px-5 py-5 flex flex-col justify-evenly">
+<script>
+  import Reviews from './reviews.svelte';
+
+  import {onMount} from "svelte"
+  import anime from "../../../js/anime.es"
+
+  // let coursel
+
+  onMount(()=>{
+    anime({
+      targets:"#coursel>div",
+      translateX:anime.stagger("-100%"),
+      duration:500,
+      endDelay:4500,
+      easing:'linear',
+      loop:true,
+      delay:anime.stagger(5000)
+    })
+  })
+  // $:{
+  //   console.log({coursel});
+  // }
+</script>
+
+<article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit lg:m-10 mt-5">
+<section class="card m-4 w-full md:mx-10 lg:w-10/12 px-5 py-5 flex flex-col justify-evenly">
   <h3 class="text-current !mb-2 !my-2">Apple iMac 27”</h3>
   <h4 class="text-current !mb-2">$2999</h4>
-    <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+    <div class="flex child:flex-shrink-0 overflow-x-hidden" id="coursel">
+      <div class="flex dark:bg-neutral-500 bg-neutral-200 h-full w-full justify-center rounded-md">
+          <img src="/imac-front-image.png" alt="" />
+      </div>
+      <div class="flex dark:bg-neutral-500 bg-neutral-200 h-full w-full justify-center rounded-md">
+          <img src="/imac-side-image.png" alt="" />
+      </div>
+      <div class="flex dark:bg-neutral-500 bg-neutral-200 h-full w-full justify-center rounded-md">
+          <img src="/imac-back-image.png" alt="" />
+      </div>
+      <div class="flex dark:bg-neutral-500 bg-neutral-200 h-full w-full justify-center rounded-md">
+          <img src="/imac-back-image.png" alt="" />
+      </div>
+       
+    </div>
+    <!-- <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
       <div class="dark:bg-neutral-500 bg-neutral-200 h-full w-full aspect-square rounded-md">
           <img src="/imac-front-image.png" alt="" />
       </div>
@@ -16,7 +55,7 @@
             <img src="/imac-back-image.png" alt="" />
         </div>
        
-    </div>
+    </div> -->
     <div >
       <h4 class="text-current !mb-2">Details</h4>
       <p class="mb-2 text-neutral-500">Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US..</p>
@@ -36,6 +75,10 @@
           <p class="!my-1 text-neutral-400">Dar es salaam</p>
       </span>
       <span class="dark:bg-neutral-700 bg-neutral-300 rounded-xl p-3 flex flex-col">
+          <p class="font-semibold !my-0">Product type</p>
+          <p class="!my-1 text-neutral-400">Electronics/PC</p>
+      </span>
+      <span class="dark:bg-neutral-700 bg-neutral-300 rounded-xl p-3 flex flex-col">
           <p class="font-semibold !my-0">Product State</p>
           <span class="flex w-fit px-2 pr-4 my-1 rounded items-center bg-primary-800 text-white">
             <svg aria-hidden="true" class="w-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -49,10 +92,7 @@
             National wide
           </p>
       </span>
-      <span class="dark:bg-neutral-700 bg-neutral-300 rounded-xl p-3 flex flex-col">
-          <p class="font-semibold !my-0">Ships from</p>
-          <p class="!my-1 text-neutral-400">Dar es salaam</p>
-      </span>
+      
       <span class="dark:bg-neutral-700 bg-neutral-300 rounded-xl p-3 flex flex-col">
           <p class="font-semibold !my-0">Dimensions (cm)</p>
           <p class="!my-1 text-neutral-400">105 x 15 x 23</p>
@@ -69,21 +109,7 @@
           Add to cart
         </button>
     </div>
+   <Reviews/>
   </section>
+  
 </article>
-
-
-
-
-
-<!-- <ul class="flex flex-col p-4 mt-4 border border-neutral-100 rounded-lg bg-neutral-50 dark:bg-neutral-800  dark:border-neutral-700">
-        <li>
-          <a href="/" class="block py-2 pl-3 pr-4 text-white bg-primary rounded dark:text-white" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100    dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white  dark:border-neutral-700">About</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-neutral-700 rounded hover:bg-neutral-100   dark:text-neutral-400  dark:hover:bg-neutral-700 dark:hover:text-white  dark:border-neutral-700">Services</a>
-        </li>
-      </ul> -->

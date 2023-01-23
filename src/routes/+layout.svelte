@@ -23,7 +23,7 @@
         }
     }
 </script>
-<main class="dark:bg-neutral-900 min-h-[100vh] h-full pb-10 relative">
+<main class="dark:bg-neutral-900 min-h-[100vh] h-full pb-10 relative ">
     <Drawer/>
     <Navbar/>
     <slot/>
