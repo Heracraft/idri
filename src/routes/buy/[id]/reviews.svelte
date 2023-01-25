@@ -23,27 +23,29 @@
   <div class="spacer"></div>
   <div class="flex w-full justify-between items-center">
     <h3 class="dark:text-white">Customer Reviews</h3>
-    <div class="relative rounded text-base w-32">
-      <span class="flex font-semibold items-center outline-neutral-800 outline outline-1 dark:outline dark:bg-neutral-700 p-2 w-full rounded" on:click={()=>resize()}>
-        {sort}
-        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="24" width="24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4Z"/></svg>
-      </span>
-      <div class="flex-col hidden absolute w-full mr-2" bind:this={collapse}>
-        <span class="p-2 hover:bg-neutral-300 dark:hover:bg-neutral-700 w-full my-1 rounded" on:click={function(){
-          sort=this.textContent
-          resize()
-        }}>
-          Top reviews
+    <div class="flex"> 
+      <Avatar config={{}}/>
+      <div class="relative rounded text-base w-32 ml-3">
+        <span class="flex font-semibold items-center outline-neutral-800 outline outline-1 dark:outline dark:bg-neutral-700 p-2 w-full rounded" on:click={()=>resize()}>
+          {sort}
+          <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" height="24" width="24"><path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4Z"/></svg>
         </span>
-        <span class="p-2 hover:bg-neutral-300 dark:hover:bg-neutral-700 w-full my-1 rounded" on:click={function(){
-          sort=this.textContent
-          resize()
-        }}>Newest</span>
+        <div class="flex-col hidden absolute w-full mr-2" bind:this={collapse}>
+          <span class="p-2 hover:bg-neutral-300 dark:hover:bg-neutral-700 w-full my-1 rounded" on:click={function(){
+            sort=this.textContent
+            resize()
+          }}>
+            Top reviews
+          </span>
+          <span class="p-2 hover:bg-neutral-300 dark:hover:bg-neutral-700 w-full my-1 rounded" on:click={function(){
+            sort=this.textContent
+            resize()
+          }}>Newest</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="flex w-full px-5 py-2 my-5">
-    <Avatar config={{}}/>
     <div class="w-full flex flex-col shadow bg-white dark:bg-neutral-700 mx-2 rounded-xl border-solid border-[1px] border-neutral-600 h-48">
       <textarea cols="30" rows="10" value="" class="m-1 outline-none p-3 placeholder:text-current border-b-[1px] border-neutral-600 flex-[9]" placeholder="Write a comment...." style="background: none;"/>
       <button class="button w-fit scale-75 flex-[1]">Post review</button>

@@ -23,7 +23,7 @@
                       targets:"#drawer",
                       translateX:"100%",
                       easing:"easeInCubic",
-                      duration:100
+                      duration:500
                   })
               setTimeout(()=>{collapse.style.display="none"},600)
             }
@@ -34,7 +34,7 @@
                       targets:"#drawer",
                       translateX:"0%",
                       easing:"easeInCubic",
-                      duration:100
+                      duration:500
                   })
             }
         }
