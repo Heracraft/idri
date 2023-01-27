@@ -13,4 +13,7 @@
     .spacer{
         @apply w-full mx-2 h-[2px] bg-neutral-700 rounded-lg my-5;
     }
+    .spacer-xs{
+        @apply w-auto mx-2 h-[1px] bg-neutral-700 rounded-lg my-2;
+    }
 }

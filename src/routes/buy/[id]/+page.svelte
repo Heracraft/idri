@@ -23,7 +23,7 @@
 </script>
 
 <article class="prose md:prose-xl flex justify-center items-center h-full w-full max-w-fit lg:m-10 mt-5">
-<section class="card m-4 w-full md:mx-10 lg:w-10/12 px-5 py-5 flex flex-col justify-evenly">
+<section class="card m-4 w-full md:mx-10 lg:w-10/12 p-2 md:p-5 flex flex-col justify-evenly">
   <h3 class="text-current !mb-2 !my-2">Apple iMac 27”</h3>
   <h4 class="text-current !mb-2">$2999</h4>
     <div class="flex child:flex-shrink-0 overflow-x-hidden" id="coursel">
