@@ -22,6 +22,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     function ({ addVariant }) {
       addVariant('child', '& > *');
+      addVariant('svg', '& svg');
     }
   ],
 }
