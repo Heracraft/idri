@@ -3,12 +3,11 @@
 
   export let rate,badge
   let stars=[]
+  
   const generateStars=(rate)=>{
-      console.log(rate.toString().slice(-2));
       if (rate.toString().slice(-2)==".5"){
           let int=rate-.5
-          console.log(int);
-          for (let i=1;i<6;i++){
+          for (let i=1;i<5;i++){
             if (i<=int){
               stars=[...stars,"star"]
               if(i==int){
@@ -31,7 +30,6 @@
             }
           }
         }
-        console.log(rate,stars);
       
   }
 
@@ -42,7 +40,7 @@
 
 
 {#if rate}
-  <div class="flex items-center">
+  <div class={`${$$props.class} flex items-center`}>
     {#each stars as star}
       {#if star=="star"}
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-yellow-400" height="20" viewBox="0 96 960 960" width="20"><path d="m243 960 90-291L96 480h291l93-288 93 288h291L627 669l90 291-237-180-237 180Z"/></svg>

@@ -6,15 +6,15 @@
 
   let sorts=['Recommended', 'Recently added', 'Price:Low to High', 'Price:High to Low', 'Top rated']
   let reviews=[4,3.5,2]
-  let reviewSelection=4
+  let reviewSelection=3.5
   let sortSelection=''
-  let collapse,resize,caret,filterOptions
+  let sortCollapse,sortCaret,reviewsCaret,reviewsCollapse,resize,filtersCollapse,resizeFilters
 
   onMount(()=>{
-    resize=(target)=>{
-        if (!target){target=caret}
-            if(collapse.style.display!="flex"){
-                collapse.style.display="flex"
+    resize=(target,caret)=>{
+            if(target.style.display!="flex"){
+                target.style.display="flex"
+                if(!caret) return
                 anime({
                     targets:caret,
                     rotateZ:"90deg",
@@ -22,11 +22,33 @@
                 })                
             }
             else{
-                collapse.style.display="none"
+                target.style.display="none"
+                if(!caret) return
                 anime({
                     targets:caret,
                     rotateZ:"0deg",
                     duration:1000
+                }) 
+            }
+        }
+    resizeFilters=()=>{
+            if(filtersCollapse.style.display!="flex"){
+                filtersCollapse.style.display="flex"
+                anime({
+                    targets:filtersCollapse,
+                    translateX:"0%",
+                    duration:100,
+                    easing:"linear",
+                    delay:500
+                })                
+            }
+            else{
+                filtersCollapse.style.display="none"
+                anime({
+                    targets:filtersCollapse,
+                    translateX:"-110%",
+                    easing:"linear",
+                    duration:100
                 }) 
             }
         }
@@ -42,11 +64,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m19.6 21-6.3-6.3q-.75.6-1.725.95Q10.6 16 9.5 16q-2.725 0-4.612-1.887Q3 12.225 3 9.5q0-2.725 1.888-4.613Q6.775 3 9.5 3t4.613 1.887Q16 6.775 16 9.5q0 1.1-.35 2.075-.35.975-.95 1.725l6.3 6.3ZM9.5 14q1.875 0 3.188-1.312Q14 11.375 14 9.5q0-1.875-1.312-3.188Q11.375 5 9.5 5 7.625 5 6.312 6.312 5 7.625 5 9.5q0 1.875 1.312 3.188Q7.625 14 9.5 14Z"/></svg>
                 <input type="text" placeholder="Find your product" class="w-auto bg-inherit text-xs outline-none text-center">
             </span>
-            <div class=" bg-primary p-3 rounded-lg ml-2">
+            <div on:click={()=>resizeFilters()} class=" bg-primary p-3 rounded-lg ml-2">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-white"><path d="M11 21v-6h2v2h8v2h-8v2Zm-8-2v-2h6v2Zm4-4v-2H3v-2h4V9h2v6Zm4-2v-2h10v2Zm4-4V3h2v2h4v2h-4v2ZM3 7V5h10v2Z"/></svg>
             </div>
         </div>
-        <section class="bg-neutral-50 dark:bg-neutral-800 shadow-md  rounded-lg flex flex-col w-full max-w-md p-5">
+        <section bind:this={filtersCollapse} class="hidden translate-x-[-110%] bg-neutral-50 dark:bg-neutral-800 shadow-md  rounded-lg flex-col w-full max-w-md p-5">
             <div>
                 <h6 class="text-xl w-fit">Category</h6>
                 <div class="flex overflow-x-scroll md:overflow-hidden scroll-smooth max-w-full px-1 py-2">
@@ -58,41 +80,48 @@
                 </div>
                 <div class="flex my-2 justify-between items-center">
                     <h6 class="text-xl w-fit">Sort by:</h6>
-                    <div class="hover:bg-neutral-200 dark:hover:bg-neutral-700 dark:svg:fill-white rounded-full w-fit h-fit p-1" on:click={()=>resize()} bind:this={caret}>
+                    <div class="hover:bg-neutral-200 dark:hover:bg-neutral-700 dark:svg:fill-white rounded-full w-fit h-fit p-1" on:click={()=>resize(sortCollapse,sortCaret)} bind:this={sortCaret}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="m376 816-56-56 184-184-184-184 56-56 240 240-240 240Z"/></svg>
                     </div>
                 </div>
-                <div class="hidden flex-col" bind:this={collapse}>
+                <div class="hidden flex-col" bind:this={sortCollapse}>
                     {#each sorts as sort}
                             <p class="!my-1 pl-3 leading-normal text-base py-2 hover:bg-neutral-100 hover:shadow dark:hover:bg-neutral-700 rounded" 
                             on:keydown={()=>{}}
                             on:click={()=>{
                                 sortSelection=sort
-                                resize();
+                                resize(sortCollapse,sortCaret);
                             }}>{sort}</p>
                     {/each}
                 </div>
-                <h6 class="text-xl w-fit">Customer review</h6>
-                <div class="flex flex-col">
+                <div class="flex my-2 justify-between items-center">
+                    <h6 class="text-xl w-fit">Customer review</h6>
+                    <div class="hover:bg-neutral-200 dark:hover:bg-neutral-700 dark:svg:fill-white rounded-full w-fit h-fit p-1" on:click={()=>resize(reviewsCollapse,reviewsCaret)} bind:this={reviewsCaret}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="m376 816-56-56 184-184-184-184 56-56 240 240-240 240Z"/></svg>
+                    </div>
+                </div>
+                <div class="hidden flex-col" bind:this={reviewsCollapse}>
                     {#each reviews as review}
                         {#if review==reviewSelection}
-                            <div class="flex justify-between">
+                            <div class="hover:bg-neutral-100 hover:shadow dark:hover:bg-neutral-700 rounded px-2 flex justify-between" on:keydown={()=>{}} on:click={()=>{
+                                    resize(reviewsCollapse,reviewsCaret)
+                                 }}>
                                 <span class="flex">
                                     <Ratings rate={review} badge={true}/>
-                                    <p>& up</p>
+                                    <p class="!my-1 ml-4">& up</p>
                                 </span>
-                                <input type="radio" value="on">
+                                <input type="radio" checked="checked">
                             </div>
                         {:else}
-                            <div class="flex justify-between">
+                            <div class="hover:bg-neutral-100 hover:shadow dark:hover:bg-neutral-700 rounded px-2 flex justify-between" on:keydown={()=>{}} on:click={()=>{
+                                reviewSelection=review
+                                resize(reviewsCollapse,reviewsCaret)
+                             }}>
                                 <span class="flex">
                                     <Ratings rate={review} badge={true}/>
-                                    <p>& up</p>
+                                    <p class="!my-1 ml-4">& up</p>
                                 </span>
-                                <input type="radio" on:click={function(){
-                                    console.log(this.value);
-                                    
-                                }}>
+                                <input type="radio">
                             </div>
                         {/if}
                     {/each}

@@ -18,6 +18,6 @@
         @apply w-auto m-0 h-[1px] bg-neutral-700 rounded-lg;
     }
     .chip{
-        @apply mx-2 text-xs px-7 w-fit py-2 rounded-full shadow bg-neutral-100 border-solid dark:border-none border-[1px] border-neutral-400 dark:bg-neutral-700 text-neutral-700 dark:text-white
+        @apply mx-2 text-xs px-7 w-fit py-2 rounded-full shadow bg-neutral-100 hover:bg-neutral-200 border-solid dark:border-none border-[1px] border-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700  dark:text-white
     }
 }
