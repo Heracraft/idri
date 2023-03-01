@@ -23,7 +23,7 @@
  
 </script>
 
-<div class="md:grid card !border-[1px] p-2 prose-base w-full place-content-center m-2" bind:this={parent}>
+<div class="md:grid card p-2 prose-base w-full place-content-center m-2" bind:this={parent}>
     <!-- <div class="flex-[2] h-full p-1 rounded" style="background-image: url(/apple-watch.png);"> -->
     <div class="flex-[2] p-1 rounded h-40 flex justify-center items-center" >
         <img class="max-w-full max-h-full !m-0" src="/apple-watch.png" alt="product image">

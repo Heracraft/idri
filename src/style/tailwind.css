@@ -15,6 +15,9 @@
         @apply w-full mx-2 h-[2px] bg-neutral-700 rounded-lg my-5;
     }
     .spacer-xs{
-        @apply w-auto mx-2 h-[1px] bg-neutral-700 rounded-lg my-2;
+        @apply w-auto m-0 h-[1px] bg-neutral-700 rounded-lg;
+    }
+    .chip{
+        @apply mx-2 text-xs px-7 w-fit py-2 rounded-full shadow bg-neutral-100 border-solid dark:border-none border-[1px] border-neutral-400 dark:bg-neutral-700 text-neutral-700 dark:text-white
     }
 }
