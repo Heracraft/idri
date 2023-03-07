@@ -20,4 +20,22 @@
     .chip{
         @apply mx-2 text-xs px-7 w-fit py-2 rounded-full shadow bg-neutral-100 hover:bg-neutral-200 border-solid dark:border-none border-[1px] border-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700  dark:text-white
     }
+    .chip-selected{
+        @apply mx-2 text-xs px-7 w-fit py-2 rounded-full shadow dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:border-solid border-none border-[1px] border-neutral-400 bg-neutral-700 hover:bg-neutral-600 dark:text-neutral-700  text-white
+    }
+    .title::before{
+        @apply bg-neutral-700 dark:bg-neutral-400 
+    }
+}
+
+::-webkit-scrollbar {
+    height: .3em;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }

@@ -6,8 +6,10 @@
 
   let sorts=['Recommended', 'Recently added', 'Price:Low to High', 'Price:High to Low', 'Top rated']
   let reviews=[4,3.5,2]
+  let categories=["Phones","Laptos","Peripherals","Networking","Phone"]
   let reviewSelection=3.5
   let sortSelection=''
+  let categorySelection=" "
   let sortCollapse,sortCaret,reviewsCaret,reviewsCollapse,resize,filtersCollapse,resizeFilters
 
   onMount(()=>{
@@ -60,7 +62,7 @@
         <h1  class="!my-1">Discover</h1>
         <h3 class="!text-gray-600 !my-1 font-normal">New collections</h3>
         <div class="flex py-3">
-            <span class="flex-[8] flex rounded-lg px-2 py-3 dark:bg-neutral-800 bg-neutral-200 text-neutral-300  svg:fill-current max-w-xs">
+            <span class="flex-[8] flex rounded-lg px-2 py-3 dark:bg-neutral-800 bg-neutral-200 dark:text-neutral-300 text-neutral-700 svg:fill-neutral-300 max-w-xs">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m19.6 21-6.3-6.3q-.75.6-1.725.95Q10.6 16 9.5 16q-2.725 0-4.612-1.887Q3 12.225 3 9.5q0-2.725 1.888-4.613Q6.775 3 9.5 3t4.613 1.887Q16 6.775 16 9.5q0 1.1-.35 2.075-.35.975-.95 1.725l6.3 6.3ZM9.5 14q1.875 0 3.188-1.312Q14 11.375 14 9.5q0-1.875-1.312-3.188Q11.375 5 9.5 5 7.625 5 6.312 6.312 5 7.625 5 9.5q0 1.875 1.312 3.188Q7.625 14 9.5 14Z"/></svg>
                 <input type="text" placeholder="Find your product" class="w-auto bg-inherit text-xs outline-none text-center">
             </span>
@@ -71,12 +73,22 @@
         <section bind:this={filtersCollapse} class="hidden translate-x-[-110%] bg-neutral-50 dark:bg-neutral-800 shadow-md  rounded-lg flex-col w-full max-w-md p-5">
             <div>
                 <h6 class="text-xl w-fit">Category</h6>
-                <div class="flex overflow-x-scroll md:overflow-hidden scroll-smooth max-w-full px-1 py-2">
-                    <div class="chip">Phones</div>
-                    <div class="chip">Laptos</div>
-                    <div class="chip">Peripherals</div>
-                    <div class="chip">Networking</div>
-                    <div class="chip">Phone</div>
+                <div class="flex md:overflow-x-scroll overflow-hidden scroll-smooth max-w-full px-1 py-2">
+                    {#each categories as category}
+                        {#if category==categorySelection}
+                            <p class="chip-selected"
+                            on:keydown={()=>{}}
+                            on:click={()=>{
+                                categorySelection=category
+                            }}>{category}</p>
+                        {:else}
+                            <p class="chip"
+                            on:keydown={()=>{}}
+                            on:click={()=>{
+                                categorySelection=category
+                            }}>{category}</p>
+                        {/if}
+                    {/each}
                 </div>
                 <div class="flex my-2 justify-between items-center">
                     <h6 class="text-xl w-fit">Sort by:</h6>
@@ -86,12 +98,19 @@
                 </div>
                 <div class="hidden flex-col" bind:this={sortCollapse}>
                     {#each sorts as sort}
+                        {#if sort==sortSelection}
+                            <p class="!my-1 pl-3 leading-normal text-base py-2 bg-neutral-100 shadow dark:bg-neutral-700 rounded" 
+                            on:keydown={()=>{}}
+                            on:click={()=>{
+                                sortSelection=sort
+                            }}>{sort}</p>
+                        {:else}
                             <p class="!my-1 pl-3 leading-normal text-base py-2 hover:bg-neutral-100 hover:shadow dark:hover:bg-neutral-700 rounded" 
                             on:keydown={()=>{}}
                             on:click={()=>{
                                 sortSelection=sort
-                                resize(sortCollapse,sortCaret);
                             }}>{sort}</p>
+                        {/if}
                     {/each}
                 </div>
                 <div class="flex my-2 justify-between items-center">
@@ -115,7 +134,6 @@
                         {:else}
                             <div class="hover:bg-neutral-100 hover:shadow dark:hover:bg-neutral-700 rounded px-2 flex justify-between" on:keydown={()=>{}} on:click={()=>{
                                 reviewSelection=review
-                                resize(reviewsCollapse,reviewsCaret)
                              }}>
                                 <span class="flex">
                                     <Ratings rate={review} badge={true}/>
@@ -131,9 +149,9 @@
 
         </section>
     </section>
-    <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5">
-        <h3 class="!mt-1 mb-2 font-mono lg:p-10">Popular products</h3>
-        <div class="flex xl:justify-center overflow-x-scroll scroll-smooth max-w-full pb-5">
+    <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5 my-5">
+        <h3 class="!mt-1 !mb-10 font-mono lg:p-10 title">Popular products</h3>
+        <div class="flex overflow-x-scroll scroll-smooth max-w-full pb-5">
             <HomeProduct/>
             <HomeProduct/>
             <HomeProduct/>
@@ -145,7 +163,7 @@
         </div>
     </section>
     <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5 lg:p-10">
-        <h3 class="!my-1 font-mono">Categories</h3>
+        <h3 class="!my-1 font-mono">Shop by Category</h3>
         <div class="flex text-red-800  w-full overflow-x-scroll scroll-smooth max-w-full child:no-underline">
             <a href="#" class="flex flex-col justify-center w-32 min-w-[128px] items-center mx-3 dark:bg-neutral-800 dark:hover:bg-neutral-700 bg-neutral-50 hover:bg-neutral-100 rounded-2xl shadow dark:text-white text-neutral-700 p-3 my-5">
                 <img class="!my-0 h-20" src="/laptop.svg" alt="laptop">
@@ -181,9 +199,51 @@
             </a>
         </div>
     </section>
+    <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5 my-5">
+        <h3 class="!mt-1 !mb-10 font-mono lg:p-10 title">Shop activity trackers and smartwatches</h3>
+        <div class="flex overflow-x-scroll scroll-smooth max-w-full pb-5">
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+        </div>
+    </section>
+    <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5 my-5">
+        <h3 class="!mt-1 !mb-10 font-mono lg:p-10 title">Gaming accessories</h3>
+        <div class="flex overflow-x-scroll scroll-smooth max-w-full pb-5">
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+        </div>
+    </section>
+    <section class="flex flex-col child:dark:!text-white child:!text-neutral-700 w-full p-5 my-5">
+        <h3 class="!mt-1 !mb-10 font-mono lg:p-10 title flex svg:fill-current items-center svg:ml-2 svg:scale-125">
+            According to your recent searches
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20"><path d="m744 479-53-115-115-52 115-53 53-115 52 115 115 53-115 52-52 115Zm0 528-52-116-116-52 116-52 52-116 52 116 116 52-116 52-52 116ZM360 887l-97-215-215-97 215-97 97-215 97 215 215 97-215 97-97 215Zm0-174 43-95 95-43-95-43-43-95-43 95-95 43 95 43 43 95Zm-6-137Z"/></svg>
+        </h3>
+        <div class="flex overflow-x-scroll scroll-smooth max-w-full pb-5">
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+            <HomeProduct/>
+        </div>
+    </section>
 </article>
 
-<style>
+<style lang="scss">
     /* .overflow-x-scroll::-webkit-scrollbar{
         height: 10px;
         background-color: #404040;
@@ -194,15 +254,25 @@
         background-color: #262626;
         border-radius: 1000000px;
     } */
-    .overflow-x-scroll::-webkit-scrollbar {
-    height: .3em;
+    
+    .title{
+        position: relative;
+        padding: 0 !important;
+        width: fit-content;
     }
-    .overflow-x-scroll::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    .title::before{
+        transition: 1000ms;
+        content:" ";
+        height:5px;
+        width: 10px;
+        border-radius: 1000px;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
- 
-    .overflow-x-scroll::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
+   .title:hover{
+        &::before{
+            width: 50%;
+        }
     }
 </style>
