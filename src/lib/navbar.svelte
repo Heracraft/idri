@@ -3,7 +3,7 @@
     import {goto} from "$app/navigation"
 
     import anime from "../js/anime.es"
-    import {sortSelection} from "../js/store"
+    import {sortSelection,cartItems} from "../js/store"
 
     let collapse,resizeSearch,switchModes,resizeDrawer
     let searchQuery=""
@@ -61,8 +61,9 @@
         }
       }} type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm text-neutral-900 border border-neutral-300 rounded-lg bg-neutral-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search...">
     </div>
-    <a href="/cart" class="mx-2 flex items-center hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-lg p-2">
+    <a href="/cart" class="relative shadow mx-2 flex items-center hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-full border-primary border-2 p-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-primary w-6 h-6"><path d="M21 4H2v2h2.3l3.28 9a3 3 0 0 0 2.82 2H19v-2h-8.6a1 1 0 0 1-.94-.66L9 13h9.28a2 2 0 0 0 1.92-1.45L22 5.27A1 1 0 0 0 21.27 4 .84.84 0 0 0 21 4zm-2.75 7h-10L6.43 6h13.24z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="16.5" cy="19.5" r="1.5"></circle></svg>
+        <span class="h-5 w-5 text-xs text-white bg-primary rounded-full absolute top-[-20%] left-0 flex justify-center items-center">{$cartItems.length}</span>
     </a>
     
     <button type="button" on:click={resizeSearch()} data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 rounded-lg text-sm p-2.5 mr-1" >
