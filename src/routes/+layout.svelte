@@ -8,8 +8,6 @@
     import {colorTheme} from "../js/store"
 
     onMount(()=>{
-        // if (!$colorTheme){
-            // }
         $colorTheme=localStorage.getItem("colorTheme")||"light"
     })
     $:{
@@ -28,3 +26,7 @@
     <Navbar/>
     <slot/>
 </main>
+
+<style>
+  
+</style>

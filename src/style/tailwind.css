@@ -39,3 +39,7 @@
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
+
+body{
+    @apply flex flex-col;
+}

@@ -1,3 +1,4 @@
+
 <div class="flex flex-col justify-between shadow-md dark:hover:bg-neutral-700 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 rounded-xl h-64 w-60 min-w-[200px] md:w-auto md:max-w-sm px-5 py-3 pt-7 mx-5 lg:mx-5 relative">
 <!-- <div class="flex flex-col justify-between  dark:hover:bg-neutral-700 bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-800 rounded-xl shadow h-60 w-40 min-w-[180px] md:w-auto md:max-w-sm px-2 pt-5 pb-2 xl:px-5 xl:pb-5 xl:pt-8 mx-5 lg:mx-5 relative"> -->
     <img src="/apple-watch.png" class="!my-0" alt="product pic">

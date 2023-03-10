@@ -2,31 +2,44 @@
    import {onMount} from "svelte"
    import Item from "./item.svelte";
  
-   import {cartItems} from "../../js/store"
- 
+   import {cartPrices,cartItems,round} from "../../js/store"
+   import {beforeNavigate } from "$app/navigation"
 
-
-//    export let subTotal=writable(0)
    let orderTotal=0
    let subTotal=0
 
    $:{
-    console.log($cartItems);
-    // console.log(list);
-    // for( let cartItem of $cartItems.values()){
-    //     console.log("cartItem")
-    // }
+       subTotal=0
+        for( let cartPrice of $cartPrices){
+            if(cartPrice){
+                subTotal=subTotal+cartPrice
+                console.log($cartPrices,cartPrice,subTotal);
+            }
+        }
+        subTotal=round(subTotal,-1)
+        orderTotal=subTotal+2.5+3
     }
-   $:{orderTotal=subTotal+2.5+3}
+    onMount(()=>{
+        document.body.style.overflow="hidden"
+    })
 
+    beforeNavigate(()=>{
+        document.body.style.overflow="auto"
+    })
 </script>
 
 <article class="prose lg:prose-xl max-w-none h-full">
     <section class="flex flex-wrap rounded justify-center items-center h-full max-h-screen">
-        <div class="md:flex-[6] flex flex-col justify-center p-2">
-            <Item {cartItems}/>
-            <Item {cartItems}/>
-            <Item {cartItems}/>
+        <div class="md:flex-[6] flex flex-col justify-center p-2 overflow-scroll max-h-screen ">
+            {#if $cartItems.length>0}
+                {#each $cartItems as cartItem,index}
+                    <Item {cartItem} {index}/>
+                {/each}
+            {:else}
+                <div class="h-[70vh] grid place-content-center child:text-neutral-700 dark:child:text-white">
+                    <h3><i>No Items</i></h3>
+                </div>
+            {/if}
         </div>
         <div class="md:flex-[4] flex flex-col justify-end items-center h-full mt-5 md:mt-auto p-5 w-2/3">
             <div class="w-full">
