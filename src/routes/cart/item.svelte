@@ -1,6 +1,6 @@
 <script>
     import {onMount} from "svelte"
-    import {cartPrices} from "../../js/store"
+    import {cartPrices,cartItems} from "../../js/store"
 
     let productQuantity=1
     let cost
@@ -51,7 +51,17 @@
         <!-- <span class="border-solid border-[1px] border-primary px-2  rounded text-primary bg-primary-600 bg-opacity-30 hover:bg-opacity-100 hover:text-white">
             Remove
         </span> -->
-        <button class="button">Remove</button>
+        <button class="button" on:click={()=>{
+            let index=$cartItems.indexOf(cartItem)
+            let temp=$cartItems
+            temp.splice(index,index+1)
+            $cartItems=temp
+            temp=$cartPrices
+            index=temp.indexOf(price)
+            temp[index]=undefined
+            $cartPrices=temp
+            
+        }}>Remove</button>
     </div>
     <!-- <div class=""></div> -->
 

@@ -33,9 +33,9 @@
 
         <div class={`${$$props.class} h-full m-3 py-5 shadow-lg border-solid border-[1px] dark:border-none dark:bg-neutral-800 rounded-lg prose lg:prose-xl max-w-none child:text-neutral-700 child:dark:text-white`} id="filters">
             <h3 class="font-semibold !my-1 px-5">Filter</h3>
-            <div class="max-h-full px-5 overflow-y-scroll">
+            <div class="max-h-full px-5 ">
                 <h6 class="text-xl w-fit">Category</h6>
-                <div class="flex md:overflow-x-scroll overflow-flex scroll-smooth max-w-full px-1 py-2">
+                <div class="flex overflow-x-scroll scroll-smooth max-w-full px-1 py-2">
                     {#each categories as category}
                         {#if category==categorySelection}
                             <p class="chip-selected"

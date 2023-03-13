@@ -94,13 +94,22 @@
       </div>
       <ul class="flex py-2 rounded-lg flex-row space-x-8 mt-0 text-sm font-medium border-0 dark:border-neutral-700">
         <li>
-          <a href="/home" class="block  rounded bg-transparent text-primary p-0 dark:text-white" aria-current="page">Home</a>
+          <a href="/" class="flex svg:fill-current svg:mr-2 items-center rounded bg-transparent text-primary p-0 dark:text-white" aria-current="page">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M5.5 15.5h2v-5h5v5h2V8.25L10 4.875 5.5 8.25ZM4 17V7.5L10 3l6 4.5V17h-5v-5H9v5Zm6-6.812Z"/></svg>
+            Home
+          </a>
         </li>
         <li>
-          <a href="#" class="block text-neutral-700 rounded hover:bg-transparent hover:text-primary p-0 dark:hover:text-white dark:text-neutral-400 dark:hover:bg-transparent dark:border-neutral-700">About</a>
+          <a href="#" class="flex svg:fill-current svg:mr-2 items-center text-neutral-700 rounded hover:bg-transparent hover:text-primary p-0 dark:hover:text-white dark:text-neutral-400 dark:hover:bg-transparent dark:border-neutral-700">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M9.25 14h1.5V9h-1.5ZM10 7.5q.312 0 .531-.219.219-.219.219-.531 0-.312-.219-.531Q10.312 6 10 6q-.312 0-.531.219-.219.219-.219.531 0 .312.219.531.219.219.531.219ZM10 18q-1.646 0-3.104-.625-1.458-.625-2.552-1.719t-1.719-2.552Q2 11.646 2 10q0-1.667.625-3.115.625-1.447 1.719-2.541Q5.438 3.25 6.896 2.625T10 2q1.667 0 3.115.625 1.447.625 2.541 1.719 1.094 1.094 1.719 2.541Q18 8.333 18 10q0 1.646-.625 3.104-.625 1.458-1.719 2.552t-2.541 1.719Q11.667 18 10 18Zm0-1.5q2.708 0 4.604-1.896T16.5 10q0-2.708-1.896-4.604T10 3.5q-2.708 0-4.604 1.896T3.5 10q0 2.708 1.896 4.604T10 16.5Zm0-6.5Z"/></svg>
+            About
+          </a>
         </li>
         <li>
-          <a href="#"  class="block text-neutral-700 rounded hover:bg-transparent hover:text-primary p-0 dark:hover:text-white dark:text-neutral-400 dark:hover:bg-transparent dark:border-neutral-700">Services</a>
+          <a href="#"  class="flex svg:fill-current svg:mr-2 items-center text-neutral-700 rounded hover:bg-transparent hover:text-primary p-0 dark:hover:text-white dark:text-neutral-400 dark:hover:bg-transparent dark:border-neutral-700">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="M15.896 16.979q-2.563-.208-4.834-1.281-2.27-1.073-3.989-2.802-1.719-1.729-2.802-4T3 4.062q-.042-.437.26-.76T4 2.979h2.833q.355 0 .615.209.26.208.344.562l.5 2.229q.041.25-.021.5-.063.25-.25.438L6 8.958q.875 1.584 2.146 2.854Q9.417 13.083 11 13.958l2.062-2q.209-.208.459-.26.25-.052.479-.01l2.229.479q.354.083.563.354.208.271.208.625v2.833q0 .563-.396.792-.396.229-.708.208ZM5.312 7.5l1.459-1.458-.354-1.563H4.542q.104.792.291 1.542.188.75.479 1.479Zm7.167 7.167q.729.291 1.49.468.76.177 1.531.282v-1.875l-1.562-.334ZM5.312 7.5Zm7.167 7.167Z"/></svg>
+            Contact
+          </a>
         </li>
       </ul>
     </div>

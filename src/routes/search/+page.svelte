@@ -50,7 +50,7 @@
 <SideView class="mt-3 ml-3 mr-3">
     <SideFilters class="!shadow-none !w-full !m-0"/>
 </SideView>
-<article class="flex max-h-screen pb-10">
+<article class="flex max-h-screen pb-24 md:pb-10">
     <aside class="rounded-lg bottom-0 top-0 hidden md:block w-72">
         <SideFilters/>
     </aside>
